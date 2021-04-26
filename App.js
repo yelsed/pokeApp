@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { StyleSheet, Text, View, Keyboard, KeyboardAvoidingView , ScrollView, SafeAreaView, FlatList, ActivityIndicator, TextInput, TouchableOpacity, Image } from 'react-native';
 import Stats from "./Stats";
+import PokeType from "./PokeType";
 import 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
@@ -54,16 +55,7 @@ const App = () => {
     
   } 
 
-  const PokeType = (props) => {
-    if(!props.type2){
-    return (
-          <Text style={styles.itemText}>{props.type1}   </Text>
-    )}
-      else{    
-        return (
-        <Text style={styles.itemNext}>{props.type1}, {props.type2}</Text>
-        )}  
-  }
+ 
 
   const ButtonPress = () => {
     Keyboard.dismiss();
@@ -143,7 +135,7 @@ const App = () => {
         </TouchableOpacity>
 
         </View>
-          <Stats text="ELECTRIC"/>
+          <Stats text="electric"/>
     </View>
     )}
     </ScrollView>
@@ -169,9 +161,10 @@ const styles = StyleSheet.create({
     padding: 5,
     fontSize: 50,
     color: '#003a70',
-    textTransform: 'capitalize'
-  },
+    textTransform: 'capitalize',
+    alignItems: 'center'
 
+  },
   statsText: {
     padding: 5,
     fontSize: 25,
@@ -205,7 +198,7 @@ tinyDefault: {
 tinyShiny: {
   width: 150,
   height: 150,
-  marginBottom: 100,
+  marginBottom: 50,
 
 },
 addWrapper: {
