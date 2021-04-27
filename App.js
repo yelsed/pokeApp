@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { StyleSheet, Text, View, Keyboard, KeyboardAvoidingView , ScrollView, SafeAreaView, FlatList, ActivityIndicator, TextInput, TouchableOpacity, Image } from 'react-native';
 import Stats from "./Stats";
-import PokeType from "./PokeType";
+import Alles from "./Alles";
 import 'react-native-gesture-handler';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
@@ -14,6 +14,7 @@ const App = () => {
   const [isLoading, setLoading] = useState(true);
   const [stats, setStats] = useState([]);
   const [hp, setHP] = useState();
+  const [id, setID] = useState();
   const [speed, setSpeed] = useState();
   const [attack, setAttack] = useState();
   const [defense, setDefense] = useState();
@@ -33,6 +34,7 @@ const App = () => {
   P.getPokemonByName(searchName) // with Promise
   .then((response) => {
         setName(response.name);
+        setID(response.id);
         setHP(      response.stats[0].base_stat);
         setAttack(  response.stats[1].base_stat);
         setDefense( response.stats[2].base_stat);
@@ -56,15 +58,49 @@ const App = () => {
   } 
 
  
+  const Nee = (props) => {
+
+if(props.name){
+   return(
+    <Alles 
+    id={id}
+    naam={name} 
+    hp={hp}
+    attack={attack}
+    defense={defense}
+    spAtk={spAtk}
+    spDef={spDef}
+    speed={speed}
+    total={totalStats}
+    image_default={image_default}
+    image_shiny={image_shiny}
+    />
+    )}
+  }
+
 
   const ButtonPress = () => {
+
     Keyboard.dismiss();
     setType1(null);
     setType2(null);
     setSearchName(zoeknaam);
-   
   }
 
+  const PokeType = (props) => {
+    if(!props.type2){
+    return (
+        <Stats text={props.type1}/>
+    )}else{
+      return([
+        <View style={{flexDirection: 'row'}}>
+        <Stats text={props.type1}/>
+        <Stats text={props.type2}/>
+        </View>
+      ])
+    }
+   
+  }
 
   return (
     <SafeAreaView style={styles.container}>
@@ -78,19 +114,22 @@ const App = () => {
        ) : (
       <View> 
           
-        <Text style = {styles.name}>{name}</Text>
-        <View style = {styles.border}></View>
+<Alles 
+    naam={name} 
+    id={id}
+    hp={hp}
+    attack={attack}
+    defense={defense}
+    spAtk={spAtk}
+    spDef={spDef}
+    speed={speed}
+    total={totalStats}
+    image_default={image_default}
+    image_shiny={image_shiny}
+    />
 
         <View style={styles.what}>
-          <Text style={styles.statsText}>Stats</Text>
-          <Text style ={styles.hp}> {hp}</Text>
-          <Text style ={styles.attack}> {attack}</Text>
-          <Text style ={styles.defense}> {defense}</Text>
-          <Text style ={styles.spAtk}> {spAtk}</Text>
-          <Text style ={styles.spDef}> {spDef}</Text>
-          <Text style ={styles.speed}> {speed}</Text>
-          <Text style ={styles.stats}> {totalStats}</Text>
-          <PokeType type1={type1} type2={type2}/>
+          <PokeType style ={styles.pokeType} type1={type1} type2={type2}/>
           <View style={styles.images}>
             <Image
               style={styles.tinyDefault}
@@ -103,20 +142,7 @@ const App = () => {
                 uri:image_shiny}}
             />
           </View>
-          {/* <View style={styles.items}>
-            {
-              stats.map((item, index) => {
-              return(
-                  <TouchableOpacity key={index}>
-            
-                    <Stats text={item} /> 
-                
-                  </TouchableOpacity>
-                  )
-              })
-            }
-          
-          </View>  */}
+
       </View>
       <View  style={styles.writeTaskWrapper}>
       <TextInput 
@@ -135,7 +161,7 @@ const App = () => {
         </TouchableOpacity>
 
         </View>
-          <Stats text="electric"/>
+          
     </View>
     )}
     </ScrollView>
@@ -151,30 +177,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     
   },
-  what: {
-    paddingBottom: 5,
-    marginTop: 10,
-    color: '#3d7dca'
-
-  },
-  name: {
-    padding: 5,
-    fontSize: 50,
-    color: '#003a70',
-    textTransform: 'capitalize',
-    alignItems: 'center'
-
-  },
-  statsText: {
-    padding: 5,
-    fontSize: 25,
-    color : '#3d7dca',
-    
-},
-border: {
-  borderBottomWidth: 1, 
-  marginBottom:     12
-},
 statsAll: {
   fontSize: 20
 },
@@ -191,16 +193,7 @@ input: {
   borderWidth: 2.5,
   width: 250,
 },
-tinyDefault: {
-  width: 150,
-  height: 150,
-},
-tinyShiny: {
-  width: 150,
-  height: 150,
-  marginBottom: 50,
 
-},
 addWrapper: {
   width: 60,
   height: 60,
@@ -213,7 +206,7 @@ addWrapper: {
 },
 addText: {},
 writeTaskWrapper: {
-  bottom: 60,
+  bottom: -10,
   flexDirection: 'row',
   justifyContent: 'space-around',
   
@@ -221,7 +214,23 @@ writeTaskWrapper: {
 images: {
   flexDirection: 'row',
 
-}
+},
+pokeType: {
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+alignItems: 'center'
+
+},
+tinyDefault: {
+  width: 150,
+  height: 150,
+},
+tinyShiny: {
+  width: 150,
+  height: 150,
+  marginBottom: 10,
+
+},
 });
 
 

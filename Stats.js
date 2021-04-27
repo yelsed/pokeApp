@@ -6,7 +6,7 @@ const Stats = (props) => {
     case 'normal':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#B7B7A9',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -23,7 +23,7 @@ const Stats = (props) => {
     case 'fire':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#FF6144',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -40,7 +40,7 @@ const Stats = (props) => {
     case 'water':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#52A9FF',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -57,7 +57,7 @@ const Stats = (props) => {
     case 'electric':
      return (
     <View style={{
-    backgroundColor: 'yellow',
+    backgroundColor: '#FFCC33',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -74,7 +74,7 @@ const Stats = (props) => {
     case 'grass':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#8CD46F',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -91,7 +91,7 @@ const Stats = (props) => {
     case 'ice':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#7DD4FF',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -108,7 +108,7 @@ const Stats = (props) => {
     case 'fighting':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#C56E60',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -125,7 +125,7 @@ const Stats = (props) => {
     case 'poison':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#AA5599',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -142,7 +142,7 @@ const Stats = (props) => {
     case 'ground':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#E2C56F',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -159,7 +159,7 @@ const Stats = (props) => {
     case 'flying':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#9AA9FF',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -176,7 +176,7 @@ const Stats = (props) => {
     case 'psychic':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#FF6FA9',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -193,7 +193,7 @@ const Stats = (props) => {
     case 'bug':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#AABB22',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -210,7 +210,7 @@ const Stats = (props) => {
     case 'rock':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#C5B77D',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -227,7 +227,7 @@ const Stats = (props) => {
     case 'ghost':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#6969BC',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -244,7 +244,7 @@ const Stats = (props) => {
     case 'dragon':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#8C7DF1',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -261,7 +261,7 @@ const Stats = (props) => {
     case 'dark':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#8C6F61',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -278,7 +278,7 @@ const Stats = (props) => {
     case 'steel':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#B7B7C5',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -295,7 +295,7 @@ const Stats = (props) => {
     case 'fairy':
      return (
     <View style={{
-    backgroundColor: 'purple',
+    backgroundColor: '#F1A9F1',
     padding: 7,
     borderRadius: 5,
     flexDirection: 'row',
@@ -310,22 +310,9 @@ const Stats = (props) => {
     </View> 
   )
     default:
-     return (
-    <View style={{
-    backgroundColor: 'purple',
-    padding: 7,
-    borderRadius: 5,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 20,
-    width: 75,
-    height: 35,
-   
-  }}>
-        <Text style={styles.iText}>{props.text}</Text>
-    </View> 
-  )
+     return(
+     null
+     )
   }
 
 }
