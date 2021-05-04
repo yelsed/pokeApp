@@ -27,7 +27,7 @@ const App = () => {
   const [type1, setType1] = useState();
   const [type2, setType2] = useState();
   const [zoeknaam, setZoek] = useState();
-  const [evolves1, setEvo1] = useState(null);
+  const [evolves1, setEvo1] = useState();
   const [evolves1ID, setEvo1ID] = useState();
   const [evolves2, setEvo2] = useState([]);
   const [evolves2ID, setEvo2ID] = useState();
@@ -79,16 +79,21 @@ const App = () => {
     .catch((error) => console.log('There was an ERROR: ', error))
     .finally(() => setLoading(false));
 
+    
  const ButtonPress = () => {
+  setTimeout(() => {
     setEvo1(null);
     setEvo2(null);
     setEvo3(null);
+
+  }, 200);
+
     Keyboard.dismiss();
     setType1(null);
     setType2(null);
     setSearchName(zoeknaam);
-
   }
+
 
   const PokeType = (props) => {
     if(!props.type2){
@@ -137,7 +142,6 @@ const App = () => {
     }
 
   }
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView   contentContainerStyle={{
