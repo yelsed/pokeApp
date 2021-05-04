@@ -19,6 +19,7 @@ return(
       <Text style ={styles.spDef}>Special Defense: {props.spDef}</Text>
       <Text style ={styles.speed}>Speed: {props.speed}</Text>
       <Text style ={styles.stats}>Total: {props.total}</Text>
+
       {/* <PokeType style ={styles.pokeType} type1={type1} type2={type2}/> */}
     
 
